@@ -2,6 +2,8 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+This project is currently under active development. Several features are still being built or refined, and a broader refactoring phase is planned to improve structure, performance, and maintainability. The codebase evolves regularly as new ideas are tested and validated, and some parts may temporarily reflect work‑in‑progress implementations.
+
 ## Get started
 
 1. Install dependencies
