@@ -1,8 +1,8 @@
+import ComicText from '@/components/ui/ComicText';
 import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, ScrollView, Switch, TextInput, TouchableOpacity, View } from 'react-native';
-import ComicText from '@/components/ui/ComicText';
 
 
 const AddIcon = require('@/../assets/icons/add-icon.png');
@@ -38,6 +38,9 @@ export default function AddTaskScreen() {
 
   // Dropdown visibility
   const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
+
+  // Energy State
+  const [energy, setEnergy] = useState<'low' | 'medium' | 'high'>('medium');
 
   const onChangeDate = (event: DateTimePickerEvent, selectedDate?: Date) => {
     setShowDatePicker(false);
@@ -192,6 +195,37 @@ export default function AddTaskScreen() {
         </View>
       </View>
 
+      {/* Energy Selection */}
+        <View style={styles.section}>
+          <ComicText style={styles.label}>Énergie ressentie</ComicText>
+          <View style={styles.priorityRow}>
+            {([
+              { key: 'low', icon: '💤', label: 'Léger' },
+              { key: 'medium', icon: '🔋', label: 'Normal' },
+              { key: 'high', icon: '⚡️', label: 'Lourd' },
+              ] as const).map((item) => (
+              <TouchableOpacity
+                key={item.key}
+                style={[
+                  styles.priorityChip,
+                  energy === item.key && styles.priorityChipSelected,
+                ]}
+                onPress={() => setEnergy(item.key)}
+              >
+                <ComicText
+                  style={[
+                    styles.priorityText,
+                    energy === item.key && styles.priorityTextSelected,
+                  ]}
+              >
+                {item.icon} {item.label}
+                </ComicText>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+
+
       {/* Notifications */}
       <View style={styles.section}>
         <View style={styles.switchRow}>
@@ -241,6 +275,7 @@ export default function AddTaskScreen() {
                 duration,
                 date: date.toISOString(),
                 notification,
+                energy,
               });
               router.back();
             }

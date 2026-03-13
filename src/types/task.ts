@@ -3,7 +3,7 @@ export interface Task {
   title: string;
   description?: string;
   categoryId?: string;
-  status: 'pending' | 'in-progress' | 'completed' | 'cancelled';
+  status: 'pending' | 'in-progress' | 'completed';
   priority: 'low' | 'medium' | 'high';
   date: string; // ISO 8601 string
   dueDate?: number; // timestamp
@@ -12,6 +12,7 @@ export interface Task {
   actualDuration?: number; // in minutes
   notification?: boolean;
   notificationId?: string;
+  energy?: 'low' | 'medium' | 'high';
   createdAt: number; // timestamp
   updatedAt: number; // timestamp
   completedAt?: number; // timestamp

@@ -6,67 +6,42 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.background,
   },
+
   scrollContent: {
     flexGrow: 1,
+    alignItems: 'center', // ← centre tout le contenu
+    justifyContent: 'flex-start',
   },
+
   container: {
     flex: 1,
+    width: '100%',
+    alignItems: 'center', // ← centre tout
     padding: 16,
     paddingBottom: 32,
   },
 
   /* ---------------- HEADER ---------------- */
   header: {
+    alignItems: 'center', // ← centre le titre + sous-titre
     marginBottom: 20,
     marginTop: 8,
   },
+
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: theme.colors.primary,
     marginBottom: 4,
     letterSpacing: 0.5,
+    textAlign: 'center',
   },
+
   subtitle: {
     fontSize: 14,
     color: theme.colors.textDim,
     fontStyle: 'italic',
-  },
-
-  /* ---------------- STATS BAR ---------------- */
-  statsBar: {
-    flexDirection: 'row',
-    backgroundColor: theme.colors.surface,
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 24,
-    borderWidth: 1,
-    borderColor: 'rgba(212, 168, 87, 0.2)',
-    ...theme.shadows.gold,
-    shadowOpacity: 0.1,
-  },
-  statItem: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  statLabel: {
-    fontSize: 12,
-    color: theme.colors.textDim,
-    marginBottom: 4,
-    fontWeight: '600',
-    textTransform: 'uppercase',
-    letterSpacing: 1,
-  },
-  statValue: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: theme.colors.secondary,
-  },
-  statDivider: {
-    width: 1,
-    height: 40,
-    backgroundColor: 'rgba(212, 168, 87, 0.2)',
-    marginHorizontal: 8,
+    textAlign: 'center',
   },
 
   /* ---------------- CADRAN HUD MARVEL ---------------- */
@@ -78,28 +53,30 @@ export const styles = StyleSheet.create({
     padding: 40,
     marginBottom: 40,
     borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.4)', // Glow or
+    borderColor: 'rgba(255, 215, 0, 0.4)',
     ...theme.shadows.gold,
     minHeight: 500,
 
-    // Glow externe façon HUD Marvel
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
     shadowRadius: 30,
-
     elevation: 12,
   },
 
   /* ---------------- WIDGETS ---------------- */
   widgetsRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+    justifyContent: 'center', // ← centre la ligne
+    alignItems: 'center',
     gap: 20,
+    marginBottom: 20,
+    width: '100%',
   },
+
   widgetWrapper: {
-    flex: 1,
+    alignItems: 'center', // ← centre chaque widget
+    justifyContent: 'center',
   },
 
   iconButton: {
@@ -117,8 +94,9 @@ export const styles = StyleSheet.create({
   },
 
   bigIcon: {
-    width: '100%',
-    height: '100%',
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',
   },
 
   badge: {
@@ -135,6 +113,7 @@ export const styles = StyleSheet.create({
     borderColor: theme.colors.surface,
     zIndex: 2,
   },
+
   badgeText: {
     fontSize: 10,
     fontWeight: '900',
@@ -143,24 +122,29 @@ export const styles = StyleSheet.create({
 
   /* ---------------- TASKS ---------------- */
   tasksSection: {
+    width: '100%',
+    alignItems: 'center', // ← centre la section
     marginBottom: 32,
   },
+
   sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    width: '100%',
+    alignItems: 'center', // ← centre le titre + sous-titre
     marginBottom: 16,
-    paddingHorizontal: 4,
   },
+
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: theme.colors.primary,
+    textAlign: 'center',
   },
+
   sectionSubtitle: {
     fontSize: 13,
     color: theme.colors.textDim,
     fontWeight: '500',
+    textAlign: 'center',
   },
 
   emptyState: {
@@ -173,16 +157,48 @@ export const styles = StyleSheet.create({
     borderStyle: 'dashed',
     borderColor: theme.colors.textDim,
   },
+
   emptyStateText: {
     fontSize: 18,
     fontWeight: '700',
     color: theme.colors.primary,
     marginBottom: 8,
+    textAlign: 'center',
   },
+
   emptyStateSubtext: {
     fontSize: 15,
     color: theme.colors.textDim,
     textAlign: 'center',
     lineHeight: 22,
+  },
+
+  /* ---------------- FILTRE ---------------- */
+  filterRow: {
+    flexDirection: 'row',
+    justifyContent: 'center', // ← centre les icônes
+    alignItems: 'center',
+    gap: 20,
+    marginBottom: 12,
+    marginTop: 4,
+    width: '100%',
+  },
+
+  filterText: {
+    fontSize: 18,
+    opacity: 0.4,
+    textAlign: 'center',
+  },
+
+  filterActive: {
+    opacity: 1,
+    textShadowColor: '#FFD700',
+    textShadowRadius: 6,
+  },
+
+  filterIcon: {
+    width: 70,
+    height: 70,
+    resizeMode: 'contain',
   },
 });

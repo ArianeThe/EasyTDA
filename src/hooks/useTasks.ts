@@ -44,6 +44,7 @@ export const useTasks = () => {
       priority?: 'low' | 'medium' | 'high';
       duration?: number;
       notification?: boolean;
+      energy?: 'low' | 'medium' | 'high';
     }) => {
       const dateString = taskData.date || new Date().toISOString();
       let dueDate: number | undefined;
@@ -61,6 +62,7 @@ export const useTasks = () => {
         dueDate,
         status: 'pending',
         priority: taskData.priority || 'medium',
+        energy: taskData.energy,
         duration: taskData.duration,
         notification: taskData.notification,
         createdAt: Date.now(),
